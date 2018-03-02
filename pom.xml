@@ -83,10 +83,18 @@
 			<artifactId>jackson-datatype-jdk8</artifactId>
 		</dependency>
 
+		<!-- EnumUtils -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.7</version>
+		</dependency>
+
+		<!-- Token security -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.7.0</version>
 		</dependency>
 
 	</dependencies>

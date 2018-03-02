@@ -11,6 +11,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.BDDMockito;
 import org.mockito.Mockito;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -36,6 +38,8 @@ import com.example.pontointeligente.api.services.LancamentoService;
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 public class LancamentoControllerTest {
+	
+	private static final Logger log = LoggerFactory.getLogger(LancamentoControllerTest.class);
 
 	@Autowired
 	private MockMvc mvc;
@@ -90,7 +94,7 @@ public class LancamentoControllerTest {
 	@Test
 	@WithMockUser(username = "admin@admin.com", roles = {"ADMIN"})
 	public void testRemoverLancamento() throws Exception {
-		BDDMockito.given(this.lancamentoService.buscarPorId(Mockito.anyLong())).willReturn(Optional.of(new Lancamento()));
+		BDDMockito.given(this.lancamentoService.buscarPorId(Mockito.anyLong())).willReturn(Optional.of(new Lancamento())).toString();
 
 		mvc.perform(MockMvcRequestBuilders.delete(URL_BASE + ID_LANCAMENTO)
 				.accept(MediaType.APPLICATION_JSON))
